@@ -45,7 +45,8 @@ class PostDetail(SelectRelatedMixin,generic.DetailView):
 
     def get_queryset(self):
         queryset=super().get_queryset()
-        return queryset.filter(username__iexact=self.kwargs.get('useername'))
+        print(queryset)
+        return queryset.filter(username__iexact=self.kwargs.get('username'))
 
 class CreatePost(LoginRequiredMixin,SelectRelatedMixin,generic.CreateView):
      fields=('message','group')
